@@ -12,7 +12,7 @@ Production-ready CustomTkinter desktop app for sending personalized job applicat
 - Attaches `resume/Ganesh_Mishra_Resume.pdf` by default and allows changing the PDF in the UI.
 - Skips empty, invalid, duplicate, and previously sent emails.
 - Maintains `sent_emails.json` so the same email is never sent twice.
-- Uses random 3-7 second delays, 3 retries, and automatic SMTP reconnect waiting.
+- Waits 60 seconds between emails, uses 3 retries, and automatic SMTP reconnect waiting.
 - Sends only between `08:00` and `12:00`, with a daily cap of `300` emails.
 - Provides Start, Pause, Resume, Stop, Search HR, Preview Email, Preview Resume, Retry Failed Emails, Schedule Sending, and Export Logs.
 - Generates `sent_report.xlsx`, `failed_report.xlsx`, and `skipped_report.xlsx`.
@@ -81,8 +81,8 @@ Only `Name`, `Company`, and `Email` are required by the app. Other columns are p
   "send_window_enabled": true,
   "send_window_start": "08:00",
   "send_window_end": "12:00",
-  "min_delay": 3,
-  "max_delay": 7,
+  "min_delay": 60,
+  "max_delay": 60,
   "retry": 3
 }
 ```

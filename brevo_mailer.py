@@ -201,8 +201,8 @@ class BrevoMailer:
 
             if send_index < len(recipients):
                 delay = random.uniform(
-                    self.app_config.get_int("min_delay", 3),
-                    self.app_config.get_int("max_delay", 7),
+                    self.app_config.get_int("min_delay", 60),
+                    self.app_config.get_int("max_delay", 60),
                 )
                 self._emit(
                     progress_callback,
